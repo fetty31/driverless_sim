@@ -1,0 +1,4 @@
+uint32 id
+uint8 type
+geometry_msgs/Point position_baseLink
+geometry_msgs/Point position_global

@@ -1,0 +1,35 @@
+# Tracker parameters
+
+Topics:
+  Input:
+    State: /driverless/state
+    Track: /driverless/track
+  Output:
+    Cones: /tracker/cones
+    ConesDown: /tracker/conesdown
+    Laptime: /tracker/lapinfo
+    Moved: /tracker/moved
+
+Service:
+  Reset: /tracker/reset
+
+Frequency: 50 # [Hz]
+
+Noise: # added gaussian error in cone's positions
+  Mean: 0.0
+  Std: 0.01
+
+Detection:
+  Radius: 20.0          # [m]
+  VisionAngle: 180.0    # [deg]
+
+Likelihood: 0.9 # Given a cone inside the car's field of view, likelihood of detecting it [0,1]. 
+
+MinVel: 0.1 # Minimum velocity to start counting laptime
+
+BoundingBox: # Different from the dynamic model dimensions; these should include aerodynamic dimensions (which usually bring down cones :( )
+  Lf: 1.5   # [m]
+  Lr: 1.0
+  T: 1.42
+
+ConesMoving: true # Whether hit cones are moved (if true, tracker/start.py frequency should be increased to at least 10Hz for a smooth visualization)

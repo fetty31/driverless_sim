@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<package format="2">
+    <name>dv_race_car</name>
+    <version>1.0.0</version>
+    <description>The dv_race_car package</description>
+
+    <maintainer email="oriol.martinez.fite@gmail.com">fetty</maintainer>
+    <license>TODO</license>
+
+    <buildtool_depend>catkin</buildtool_depend>
+
+    <depend>gazebo_ros</depend>
+    <depend>std_msgs</depend>
+    <depend>dv_common</depend>
+
+    <!-- <build_depend>fssim_common</build_depend> -->
+    <build_depend>roscpp</build_depend>
+
+    <!-- <build_export_depend>fssim_common</build_export_depend> -->
+    <build_export_depend>roscpp</build_export_depend>
+
+    <!-- <exec_depend>fssim_common</exec_depend> -->
+    <exec_depend>roscpp</exec_depend>
+
+    <depend>pcl_ros</depend>
+    <!-- <depend>libpcl-all</depend> -->
+    <!-- <depend>fssim-pcl-ros</depend> -->
+
+    <!-- The export tag contains other, unspecified, tags -->
+    <export>
+
+        <gazebo_ros plugin_path="${prefix}/../../lib" gazebo_media_path="${prefix}"/>
+        <!-- Other tools can request additional information be placed here -->
+
+    </export>
+</package>

@@ -1,0 +1,32 @@
+<launch>
+
+  <!-- Set RaceCar parameters -->
+  <rosparam command="load" file="$(find dv_core)/params/race_car.yaml" ns="RaceCar"/>
+  <rosparam command="load" file="$(find dv_core)/params/tracker.yaml" ns="Tracker"/>
+
+  <arg name="track_name" default="FSI.yaml"/> <!-- change this for selecting the track -->
+
+  <node pkg="dv_tracker" name="Tracker_start" type="start_deprecated.py" output="screen" required="true">
+    <param name="path" type="str" value="$(find dv_tracker)/tracks/$(arg track_name)"/>
+    <param name="cone_daes" type="bool" value="false"/> <!-- change this to false if you don't have as_visualization pkg -->
+    <param name="freq" type="double" value="10"/>
+  </node>
+
+  <!-- Launch Gazebo world -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find dv_core)/worlds/mobile.world"/>
+    <arg name="verbose" value="true"/>
+    <arg name="gui" value="true"/>
+  </include>
+
+  <!-- Start bypass node -->
+  <include file="$(find dv_bypass)/launch/diana.launch"/>
+
+  <!-- Set up static tf-->
+  <node name="static_tf_lidar"  pkg="tf" type="static_transform_publisher" args="0.8 0 1.578016 3.14159265 0 0 base_link lidar 100"/>
+
+  <!-- Visualization -->
+  <param name="robot_description" textfile="$(find dv_core)/urdf/diana.urdf"/>
+  <!-- <node pkg="rviz" type="rviz" name="rviz" args="-d $(find dv_core)/template.rviz"/> -->
+
+</launch>

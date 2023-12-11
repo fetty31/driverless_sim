@@ -1,0 +1,11 @@
+<launch>
+
+  <node name="dv_bypass" pkg="dv_bypass" type="diana_bypass" output="screen">
+    <param name="Topics/Output/Pose" type="str" value="/robot_pose_ekf/odom_combined"/>
+    <param name="Topics/Output/Twist" type="str" value="/can_info"/>
+    <param name="Topics/Output/Yaw" type="str" value="/gps/navsat"/>
+    <param name="Topics/Input/Steering" type="str" value="/ste_simu"/>
+    <param name="Topics/Input/Motor" type="str" value="/acel_simu"/>
+  </node>
+
+</launch>

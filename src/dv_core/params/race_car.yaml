@@ -1,0 +1,52 @@
+# Race Car parameters
+
+Topics:
+  Input:
+    Commands: /driverless/commands
+  Output:
+    DynState: /driverless/dynamic/state
+    KinState: /driverless/state
+    GroundTruth: /driverless/ground_truth
+
+Kinematic:
+  Width:
+    F: 0.7685                    # [m]
+    R: 0.7685                    # [m]
+  Length:
+    F: 1.4856                    # [m]
+    R: 1.215                     # [m]
+  CoG_height: 0.25               # [m]
+
+Inertia:
+  Mass: 1200                  # [kg]
+  Gravity: 9.81               # [m/s²]
+  Iz: 500.0                   # [kg m²]
+  WeightFactor: 0.55          # [-]
+
+Tire:
+  Pacejka:
+    B: 12.56
+    C: -1.38
+    D: 1.6
+    E: -0.58
+  MaxSteering: 0.52           # [rad]
+  Radius: 0.232               # [m]
+
+Aero:
+  Area: 1.0                   # [m²]
+  AirDensity: 1.2             # [kg/m³]
+  Cd: 0.7                    
+  Cl: 1.22
+
+DriveTrain:
+  N_wheels: 4
+  Inertia: 0.4                # [kg m²]
+  DynRadius: 0.231            # [m]
+  MotorFactor: 2000           # [N]
+  RollingResistance: 180.0    # [N]
+  AddedMass: 0.0              # [kg]
+
+Noise:
+  VxSigma: 0.01
+  VySigma: 0.01
+  YawRateSigma: 0.01

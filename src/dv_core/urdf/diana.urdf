@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<robot name="diana">
+  <link name="base_link">
+    <visual>
+      <origin xyz="1.5 0 0" rpy="1.57075 0 -1.57075" />
+      <geometry>
+        <mesh filename="package://diana/meshes/sabber.obj" scale="1.0 1.0 1.0"/>
+      </geometry>
+    </visual>
+  </link>
+</robot>
