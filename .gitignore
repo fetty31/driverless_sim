@@ -1,0 +1,6 @@
+# ignore ROS build directories/files
+devel/
+build/
+logs/
+src/CMake*
+.catkin_*
